@@ -7,9 +7,11 @@ import os
 
 bot = commands.Bot()
 
+
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user}')
+    print(f"Logged in as {bot.user}")
+
 
 load_dotenv()
 bot.run(os.getenv("BOT_TOKEN"))
