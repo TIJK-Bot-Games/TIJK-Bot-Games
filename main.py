@@ -11,6 +11,7 @@ bot = commands.Bot()
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
+    print("I'm Alive")
 
 
 load_dotenv()
