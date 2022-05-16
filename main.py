@@ -1,6 +1,6 @@
 # TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 
-#importing libs
+# importing libs
 import nextcord
 import os
 from nextcord.ext import commands
@@ -16,10 +16,10 @@ async def on_ready():
     print("I'm Alive")
 
 
-
-#ping cmd
+# ping cmd
 @bot.command()
 async def ping(ctx):
-	await ctx.channel.send("pong")
- 
+    await ctx.channel.send("pong")
+
+
 bot.run(os.getenv("BOT_TOKEN"))
