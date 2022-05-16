@@ -27,6 +27,7 @@ bot = commands.Bot()
 
 SLASH_GUILDS = (870973430114181141, 865146077236822017)
 
+
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
@@ -43,6 +44,7 @@ class General(commands.Cog):
         await interaction.response.send_message(
             embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
         )
+
 
 @bot.event
 async def on_ready():
