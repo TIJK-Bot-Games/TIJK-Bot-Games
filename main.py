@@ -1,9 +1,9 @@
 # TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 
-# importing libs
-from dotenv import load_dotenv
+# importing libs and files
 import nextcord
 import os
+from dotenv import load_dotenv
 from nextcord.ext import commands
 from nextcord import slash_command as slash
 from nextcord import Interaction
@@ -22,7 +22,7 @@ bot = commands.Bot(
     intents=nextcord.Intents.all(),
 )
 
-load_dotenv()
+
 bot = commands.Bot()
 
 SLASH_GUILDS = (870973430114181141, 865146077236822017)
@@ -50,3 +50,7 @@ class General(commands.Cog):
 async def on_ready():
     print(f"Logged in as {bot.user}")
     print("I'm Alive")
+
+load_dotenv()
+BOT_TOKEN=os.getenv('BOT_TOKEN')
+client.run(BOT_TOKEN)
