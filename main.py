@@ -13,7 +13,13 @@ bot = commands.Bot()
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    print("I'm Alive")
+    for cog in os.listdir("cogs"):
+        try:
+            bot.load_extension("cogs." + cog.strip(".py"))
+            print(f"Loaded {cog}")
+        except Exception as e:
+            print(e)
+            print(f"{cog} couldn't be loaded")
 
 
 # ping cmd
@@ -22,4 +28,5 @@ async def ping(ctx):
     await ctx.channel.send("pong")
 
 
-bot.run(os.getenv("BOT_TOKEN"))
+if __name__ == "__main__":
+    bot.run(os.getenv("BOT_TOKEN"))
