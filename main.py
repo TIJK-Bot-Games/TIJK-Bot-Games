@@ -51,6 +51,7 @@ async def on_ready():
     print(f"Logged in as {bot.user}")
     print("I'm Alive")
 
+
 load_dotenv()
-BOT_TOKEN=os.getenv('BOT_TOKEN')
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 client.run(BOT_TOKEN)
