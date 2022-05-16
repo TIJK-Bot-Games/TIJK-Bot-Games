@@ -1,6 +1,7 @@
 # TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 
 # importing libs
+from dotenv import load_dotenv
 import nextcord
 import os
 from nextcord.ext import commands
