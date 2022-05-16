@@ -4,7 +4,6 @@
 import nextcord
 import os
 from nextcord.ext import commands
-from dotenv import load_dotenv
 from nextcord import slash_command as slash
 from nextcord import Interaction
 from nextcord.application_command import SlashOption
