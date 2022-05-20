@@ -9,6 +9,7 @@ from main import SLASH_GUILDS
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+
     @slash(guild_ids=SLASH_GUILDS)
     async def github(self, interaction: Interaction):
         """Send a link to the official TIJK Bot Games GitHub page"""
@@ -22,9 +23,11 @@ class General(commands.Cog):
             embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
         )
 
+
 class Fun(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+
     @slash(guild_ids=SLASH_GUILDS)
     async def github(self, interaction: Interaction):
         """Tells you what you are"""
