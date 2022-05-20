@@ -35,7 +35,7 @@ class Fun(commands.Cog):
             inline=False,
         )
         await interaction.response.send_message(
-            embed=embed, view=Link("You are a silly goose.")
+            embed=embed, view=("You are a silly goose.")
         )
 
 
