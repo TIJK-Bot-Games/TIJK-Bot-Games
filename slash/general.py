@@ -41,3 +41,4 @@ class Fun(commands.Cog):
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
+    bot.add_cog(Fun(bot))
