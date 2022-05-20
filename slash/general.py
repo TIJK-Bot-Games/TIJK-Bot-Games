@@ -11,19 +11,6 @@ class General(commands.Cog):
         self.bot = bot
     @slash(guild_ids=SLASH_GUILDS)
     async def github(self, interaction: Interaction):
-        """Tells you what you are"""
-        embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="What are you?",
-            value="What are you?",
-            inline=False,
-        )
-        await interaction.response.send_message(
-            embed=embed, view=("You are a silly goose.")
-        )
-
-    @slash(guild_ids=SLASH_GUILDS)
-    async def github(self, interaction: Interaction):
         """Send a link to the official TIJK Bot Games GitHub page"""
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
@@ -33,6 +20,22 @@ class General(commands.Cog):
         )
         await interaction.response.send_message(
             embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
+        )
+
+class Fun(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+    @slash(guild_ids=SLASH_GUILDS)
+    async def github(self, interaction: Interaction):
+        """Tells you what you are"""
+        embed = nextcord.Embed(color=0x0DD91A)
+        embed.add_field(
+            name="Tells you what you are.",
+            value="You are a silly goose.",
+            inline=False,
+        )
+        await interaction.response.send_message(
+            embed=embed, view=Link("You are a silly goose.")
         )
 
 
