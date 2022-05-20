@@ -1,14 +1,11 @@
 # TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 
-# importing libs and files
-import nextcord
 import os
+import nextcord
 from dotenv import load_dotenv
 from nextcord.ext import commands
-from nextcord import slash_command as slash
-from nextcord import Interaction
-from nextcord.application_command import SlashOption
-from views.buttons.link import Link
+
+load_dotenv()
 
 client = nextcord.Client()
 bot = commands.Bot(
@@ -25,24 +22,26 @@ bot = commands.Bot()
 SLASH_GUILDS = (870973430114181141, 865146077236822017)
 
 
-@slash(guild_ids=SLASH_GUILDS)
-async def githuub(interaction: Interaction):
-    """Send a link to the official TIJK Bot Games GitHub page"""
-    embed = nextcord.Embed(color=0x0DD91A)
-    embed.add_field(
-    name="View the official TIJK Bot Games code now!",
-    value="https://github.com/TIJK-Bot-Games/TIJK-Bot-Games",
-    inline=False,
-    )
-    await interaction.response.send_message(
-        embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
-    )
-
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    print("I'm Alive")
+    for cog in os.listdir("cogs"):
+        if cog.endswith(".py"):
+            try:
+                bot.load_extension(f"cogs.{cog[:-3]}")
+                print(f"Loaded {cog}")
+            except Exception as e:
+                print(e)
+                print(f"Failed to load {cog}")
 
-load_dotenv()
-BOT_TOKEN=os.getenv('BOT_TOKEN')
-bot.run(BOT_TOKEN)
+
+if __name__ == "__main__":
+    for slash in os.listdir("slash"):
+        if slash.endswith(".py"):
+            try:
+                bot.load_extension(f"slash.{slash[:-3]}")
+                print(f"Loaded {slash}")
+            except Exception as e:
+                print(e)
+                print(f"Failed to load {slash}")
+    bot.run(os.getenv("BOT_TOKEN"))
