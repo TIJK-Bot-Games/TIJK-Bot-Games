@@ -41,6 +41,6 @@ class General(commands.Cog):
         embed.add_field(name=title, value=value)
         await interaction.response.send_message(embed=embed)
 
-# FRIKANDEL BROODJES < 3 JustIanJ != JustIanJ
+# FRIKANDEL BROODJES <3
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
