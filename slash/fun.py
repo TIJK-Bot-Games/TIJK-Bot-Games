@@ -5,8 +5,6 @@ import random
 from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
-from nextcord import File
-
 # Made by JustIanJ and codeman1o1.
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
@@ -50,20 +48,31 @@ class Fun(commands.Cog):
         await interaction.response.send_message(embed=embed)
 
 
-with open(imageslashadthijs.jpg, "rb") as fh:
-    f = nextcord.File(fh, filename=imageslashadthijs.jpg)
-
     @slash(guild_ids=SLASH_GUILDS)
     async def adthijs(self, interaction: Interaction):
         """Shows you our teacher"""
+        img = nextcord.File("images/adthijs.jpg")
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
             name="Our teacher: Ad Thijs",
             value=":)",
+        )
+        embed.set_image(url="attachment://adthijs.jpg")
+        await interaction.response.send_message(embed=embed, file=img)
+        print("Adje has been summoned")
+
+    @slash(guild_ids=SLASH_GUILDS)
+    async def jurrels(self, interaction: Interaction):
+        """Shows you our Jurrels"""
+        img = nextcord.File("images/jurrels.jpg")
+        embed = nextcord.Embed(color=0x0DD91A)
+        embed.add_field(
+            name="Our lovely annoying Jurrels",
+            value=":)",
             inline=False,
         )
-        await interaction.response.send_message(embed=embed)
-        await interaction.response.send_message(file=f)
+        embed.set_image(url="attachment://jurrels.jpg")
+        await interaction.response.send_message(embed=embed, file=img)
 
 
 def setup(bot: commands.Bot):
