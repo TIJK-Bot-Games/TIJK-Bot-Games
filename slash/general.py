@@ -23,8 +23,6 @@ class General(commands.Cog):
             embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
         )
 
-<<<<<<< HEAD
-=======
 
 class Fun(commands.Cog):
     def __init__(self, bot: commands.Bot):
@@ -42,7 +40,6 @@ class Fun(commands.Cog):
         await interaction.response.send_message(
             embed=embed, view=("You are a silly goose.")
         )
->>>>>>> 48d559e21670864964dd27a38bfb4cf056533d65
 
 
 def setup(bot: commands.Bot):
