@@ -24,23 +24,5 @@ class General(commands.Cog):
         )
 
 
-class Fun(commands.Cog):
-    def __init__(self, bot: commands.Bot):
-        self.bot = bot
-
-    @slash(guild_ids=SLASH_GUILDS)
-    async def github(self, interaction: Interaction):
-        """Tells you what you are"""
-        embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="Tells you what you are.",
-            value="You are a silly goose.",
-            inline=False,
-        )
-        await interaction.response.send_message(
-            embed=embed, view=("You are a silly goose.")
-        )
-
-
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
