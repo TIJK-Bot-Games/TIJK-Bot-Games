@@ -20,9 +20,7 @@ class Fun(commands.Cog):
             value="You are a silly goose.",
             inline=False,
         )
-        await interaction.response.send_message(
-            embed=embed ("You are a silly goose.")
-        )
+        await interaction.response.send_message(embed=embed("You are a silly goose."))
 
 
 def setup(bot: commands.Bot):
