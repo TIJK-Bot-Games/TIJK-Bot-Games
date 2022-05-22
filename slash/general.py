@@ -39,10 +39,10 @@ class General(commands.Cog):
         self,
         interaction: Interaction,
         title: str = SlashOption(
-            description="The title of the 1st field", required=False
+            description="The title of the field", required=False
         ),
         value: str = SlashOption(
-            description="The value of the 1st field", required=False
+            description="The value of the field", required=False
         ),
     ):
         """Makes an embed"""
@@ -50,7 +50,5 @@ class General(commands.Cog):
         embed.add_field(name=title, value=value)
         await interaction.response.send_message(embed=embed)
 
-
-# FRIKANDEL BROODJES < 3 JustIanJ != JustIanJ
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
