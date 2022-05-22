@@ -26,6 +26,7 @@ SLASH_GUILDS = (870973430114181141, 865146077236822017)
 async def on_ready():
     print(f"Logged in as {bot.user}")
     print("Hello world, I'm alive")
+    print("This bot is made by JustIanJ and codeman1o1")
     for cog in os.listdir("cogs"):
         if cog.endswith(".py"):
             try:
