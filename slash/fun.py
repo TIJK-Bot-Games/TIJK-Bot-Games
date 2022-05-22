@@ -5,6 +5,7 @@ import random
 from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
+from nextcord import File
 
 # Made by JustIanJ and codeman1o1.
 root = os.path.abspath(os.getcwd())
@@ -47,6 +48,21 @@ class Fun(commands.Cog):
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
+
+with open(imageslashadthijs.jpg, "rb") as fh:
+    f = nextcord.File(fh, filename=imageslashadthijs.jpg)
+
+    @slash(guild_ids=SLASH_GUILDS)
+    async def adthijs(self, interaction: Interaction):
+        """Shows you our teacher"""
+        embed = nextcord.Embed(color=0x0DD91A)
+        embed.add_field(
+            name="Our teacher: Ad Thijs",
+            value=":)",
+            inline=False,
+        )
+        await interaction.response.send_message(embed=embed)
+        await interaction.response.send_message(file=f)
 
 
 def setup(bot: commands.Bot):
