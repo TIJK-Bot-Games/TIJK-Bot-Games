@@ -47,8 +47,9 @@ class General(commands.Cog):
         try:
             await interaction.response.send_message(embed=embed)
         except nextcord.HTTPException:
-            await interaction.response.send_message("The embed is invalid", ephemeral=True)
-
+            await interaction.response.send_message(
+                "The embed is invalid", ephemeral=True
+            )
 
 
 def setup(bot: commands.Bot):

@@ -49,6 +49,7 @@ class Fun(commands.Cog):
         embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
 
+
 with open(imageslashadthijs.jpg, "rb") as fh:
     f = nextcord.File(fh, filename=imageslashadthijs.jpg)
 
