@@ -6,6 +6,7 @@ from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 
+# Made by JustIanJ and codeman1o1
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
     os.path.join(root, "eightball_responses.json"), "r", encoding="utf-8"
