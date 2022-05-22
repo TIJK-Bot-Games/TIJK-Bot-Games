@@ -47,8 +47,11 @@ class General(commands.Cog):
     ):
         """Makes an embed"""
         embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(name=title, value=value)
-        await interaction.response.send_message(embed=embed)
+        embed.add_field(title=title or "", value=value or "")
+        try:
+            await interaction.response.send_message(embed=embed)
+        except nextcord.HTTPException:
+            await interaction.response.send_message("The embed is invalid", ephemeral=True)
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
