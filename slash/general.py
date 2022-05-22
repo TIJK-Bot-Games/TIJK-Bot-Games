@@ -35,11 +35,21 @@ class General(commands.Cog):
         await interaction.response.send_message(embed=embed)
 
     @slash(guild_ids=SLASH_GUILDS)
-    async def embed(self, interaction: Interaction, title: str = SlashOption(description="The title of the 1st field", required=False), value: str = SlashOption(description="The value of the 1st field", required=False)):
+    async def embed(
+        self,
+        interaction: Interaction,
+        title: str = SlashOption(
+            description="The title of the 1st field", required=False
+        ),
+        value: str = SlashOption(
+            description="The value of the 1st field", required=False
+        ),
+    ):
         """Makes an embed"""
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(name=title, value=value)
         await interaction.response.send_message(embed=embed)
+
 
 # FRIKANDEL BROODJES < 3 JustIanJ != JustIanJ
 def setup(bot: commands.Bot):
