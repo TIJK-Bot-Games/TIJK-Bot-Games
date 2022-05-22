@@ -23,6 +23,16 @@ class General(commands.Cog):
             embed=embed, view=Link("https://github.com/TIJK-Bot-Games/TIJK-Bot-Games")
         )
 
+    @slash(guild_ids=SLASH_GUILDS)
+    async def aboutme(self, interaction: Interaction):
+        """Tells you what TIJK-Bot Games is."""
+        embed = nextcord.Embed(color=0x0DD91A)
+        embed.add_field(
+            name="About me:",
+            value="TIJK-Bot Games is a Discord bot developed by JustIanJ and codeman1o1. TIJK Bot Games is going to be a fun bot to use, it has features like 8-ball. We are currently under very heavy development. So the bot is not working properly yet. More content will be added later.",
+        )
+        await interaction.response.send_message(embed=embed)
+
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
