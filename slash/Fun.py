@@ -1,3 +1,4 @@
+from cgitb import text
 import nextcord
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
@@ -20,7 +21,7 @@ class Fun(commands.Cog):
             inline=False,
         )
         await interaction.response.send_message(
-            embed=embed, view=("You are a silly goose.")
+            embed=embed ("You are a silly goose.")
         )
 
 
