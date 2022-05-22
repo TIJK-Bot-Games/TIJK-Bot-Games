@@ -6,6 +6,7 @@ from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 from views.buttons.link import Link
+
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
     os.path.join(root, "eightball_responses.json"), "r", encoding="utf-8"
@@ -28,9 +29,13 @@ class Fun(commands.Cog):
             inline=False,
         )
         await interaction.response.send_message(embed=embed)
-        
+
     @slash(guild_ids=SLASH_GUILDS)
-    async def eightball(self, interaction: Interaction, question=SlashOption(description="Question", required=True)):
+    async def eightball(
+        self,
+        interaction: Interaction,
+        question=SlashOption(description="Question", required=True),
+    ):
         """Rolls the magic eightball for advise."""
         embed = nextcord.Embed(color=0x0DD91A, title=question)
         embed.description = random.choice(eight_ball_responses)
