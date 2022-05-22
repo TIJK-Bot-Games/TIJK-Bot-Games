@@ -45,11 +45,9 @@ class Fun(commands.Cog):
     async def headsortails(self, interaction: Interaction):
         """Throws a coin"""
         embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="You have got:",
-            value=random.choice(("Heads", "Tails"))
-        )
+        embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
+
 
 def setup(bot: commands.Bot):
     bot.add_cog(Fun(bot))
