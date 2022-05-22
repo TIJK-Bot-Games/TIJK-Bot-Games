@@ -38,12 +38,8 @@ class General(commands.Cog):
     async def embed(
         self,
         interaction: Interaction,
-        title: str = SlashOption(
-            description="The title of the field", required=False
-        ),
-        value: str = SlashOption(
-            description="The value of the field", required=False
-        ),
+        title: str = SlashOption(description="The title of the field", required=False),
+        value: str = SlashOption(description="The value of the field", required=False),
     ):
         """Makes an embed"""
         embed = nextcord.Embed(color=0x0DD91A)
@@ -52,6 +48,7 @@ class General(commands.Cog):
             await interaction.response.send_message(embed=embed)
         except nextcord.HTTPException:
             await interaction.response.send_message("The embed is invalid", ephemeral=True)
+
 
 
 def setup(bot: commands.Bot):
