@@ -11,7 +11,7 @@ class Fun(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
     @slash(guild_ids=SLASH_GUILDS)
-    async def github(self, interaction: Interaction):
+    async def whatami(self, interaction: Interaction):
         """Tells you what you are"""
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
