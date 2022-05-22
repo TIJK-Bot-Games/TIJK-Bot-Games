@@ -5,6 +5,7 @@ import random
 from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
+
 # Made by JustIanJ and codeman1o1.
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
@@ -46,7 +47,6 @@ class Fun(commands.Cog):
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
-
 
     @slash(guild_ids=SLASH_GUILDS)
     async def adthijs(self, interaction: Interaction):
