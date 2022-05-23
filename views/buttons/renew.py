@@ -10,4 +10,6 @@ class Renew(nextcord.ui.View):
 
     @nextcord.ui.button(label="Renew", style=ButtonStyle.blurple)
     async def renew(self, button: Button, interaction: Interaction):
-        await interaction.message.edit(content=f"The latency of TIJK Bot Games is {self.bot.latency * 1000}ms")
+        await interaction.message.edit(
+            content=f"The latency of TIJK Bot Games is {self.bot.latency * 1000}ms"
+        )

@@ -6,6 +6,7 @@ from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 from main import SLASH_GUILDS
+
 # Made by JustIanJ and codeman1o1.
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
@@ -75,7 +76,7 @@ class Fun(commands.Cog):
 
     @slash(guild_ids=SLASH_GUILDS)
     async def f(self, interaction: Interaction, text: str = SlashOption(required=True)):
-        """ Press F to pay respect """
+        """Press F to pay respect"""
         hearts = ("❤", "💛", "💚", "💙", "💜")
         reason = f"for **{text}** " if text else ""
         await interaction.response.send_message(f"**{interaction.user.name}** has paid their respect {reason}{random.choice(hearts)}")
