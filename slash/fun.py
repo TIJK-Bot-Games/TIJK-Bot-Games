@@ -73,7 +73,7 @@ class Fun(commands.Cog):
         )
         embed.set_image(url="attachment://jurrels.jpg")
         await interaction.response.send_message(embed=embed, file=img)
-        
+
     @slash(guild_ids=SLASH_GUILDS)
     async def beverage(self, interaction: Interaction):
         """Shows you the best beverage ever made."""
