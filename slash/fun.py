@@ -81,7 +81,7 @@ class Fun(commands.Cog):
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
             name="The best beverage ever made.",
-            value=" ",
+            value="<3",
             inline=False,
         )
         embed.set_image(url="attachment://jurrels.jpg")
