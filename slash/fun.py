@@ -79,7 +79,9 @@ class Fun(commands.Cog):
         """Press F to pay respect"""
         hearts = ("❤", "💛", "💚", "💙", "💜")
         reason = f"for **{text}** " if text else ""
-        await interaction.response.send_message(f"**{interaction.user.name}** has paid their respect {reason}{random.choice(hearts)}")
+        await interaction.response.send_message(
+            f"**{interaction.user.name}** has paid their respect {reason}{random.choice(hearts)}"
+        )
 
 
 def setup(bot: commands.Bot):
