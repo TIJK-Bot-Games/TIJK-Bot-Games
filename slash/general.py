@@ -56,7 +56,7 @@ class General(commands.Cog):
     async def ping(self, interaction: Interaction):
         """Sends the latency of TIJK Bot Games"""
         await interaction.response.send_message(
-            f"The latency of TIJK Bot Games is {self.bot.latency * 1000}ms",
+            f"🏓 Pong! The latency of TIJK Bot Games is {self.bot.latency * 1000}ms",
             view=Renew(self.bot),
         )
 
