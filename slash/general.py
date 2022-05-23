@@ -39,12 +39,12 @@ class General(commands.Cog):
     async def embed(
         self,
         interaction: Interaction,
-        title: str = SlashOption(description="The title of the field", required=False),
+        name: str = SlashOption(description="The title of the field", required=False),
         value: str = SlashOption(description="The value of the field", required=False),
     ):
         """Makes an embed"""
         embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(title=title or "", value=value or "")
+        embed.add_field(name=name or "", value=value or "")
         try:
             await interaction.response.send_message(embed=embed)
         except nextcord.HTTPException:
