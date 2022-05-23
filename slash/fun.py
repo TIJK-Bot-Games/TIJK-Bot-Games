@@ -47,6 +47,7 @@ class Fun(commands.Cog):
         embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
 
+
     @slash(guild_ids=SLASH_GUILDS)
     async def adthijs(self, interaction: Interaction):
         """Shows you our teacher"""
