@@ -3,6 +3,7 @@ from nextcord.application_command import SlashOption
 from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 from views.buttons.link import Link
+from views.buttons.renew import Renew
 
 from main import SLASH_GUILDS
 
@@ -50,6 +51,11 @@ class General(commands.Cog):
             await interaction.response.send_message(
                 "The embed is invalid", ephemeral=True
             )
+
+    @slash(guild_ids=SLASH_GUILDS)
+    async def ping(self, interaction: Interaction):
+        """Sends the latency of TIJK Bot Games"""
+        await interaction.response.send_message(f"The latency of TIJK Bot Games is {self.bot.latency * 1000}ms", view=Renew(self.bot))
 
 
 def setup(bot: commands.Bot):
