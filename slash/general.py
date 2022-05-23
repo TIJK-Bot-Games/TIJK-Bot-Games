@@ -1,10 +1,13 @@
 import nextcord
+from utils import default
+from utils.data import Bot, HelpFormat
 from nextcord.application_command import SlashOption
-from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 from views.buttons.link import Link
+import utils
 from views.buttons.renew import Renew
-
+from nextcord.ext import commands
+from utils import default, http
 from main import SLASH_GUILDS
 
 
@@ -59,6 +62,37 @@ class General(commands.Cog):
             f"🏓 Pong! The latency of TIJK Bot Games is {self.bot.latency * 1000}ms",
             view=Renew(self.bot),
         )
+
+    @slash(guild_ids=SLASH_GUILDS)
+    async def covid(self, interaction: Interaction, country: str):
+        """Covid-19 Statistics for any countries"""
+        async with interaction.channel.typing():
+            r = await http.get(f"https://disease.sh/v3/covid-19/countries/{country.lower()}", res_method="json")
+
+            if "message" in r:
+                return await interaction.send(f"The API returned an error:\n{r['message']}")
+
+            json_data = [
+                ("Total Cases", r["cases"]), ("Total Deaths", r["deaths"]),
+                ("Total Recover", r["recovered"]), ("Total Active Cases", r["active"]),
+                ("Total Critical Condition", r["critical"]), ("New Cases Today", r["todayCases"]),
+                ("New Deaths Today", r["todayDeaths"]), ("New Recovery Today", r["todayRecovered"])
+            ]
+
+            embed = nextcord.Embed(
+                description=f"The information provided was last updated <t:{int(r['updated'] / 1000)}:R>"
+            )
+
+            for name, value in json_data:
+                embed.add_field(
+                    name=name, value=f"{value:,}" if isinstance(value, int) else value
+                )
+
+            await interaction.send(
+                f"**COVID-19** statistics in :flag_{r['countryInfo']['iso2'].lower()}: "
+                f"**{country.capitalize()}** *({r['countryInfo']['iso3']})*",
+                embed=embed
+            )
 
 
 def setup(bot: commands.Bot):
