@@ -84,7 +84,7 @@ class Fun(commands.Cog):
             value="<3",
             inline=False,
         )
-        embed.set_image(url="attachment://jurrels.jpg")
+        embed.set_image(url="attachment://beverage.jpg")
         await interaction.response.send_message(embed=embed, file=img)
 
     @slash(guild_ids=SLASH_GUILDS)
