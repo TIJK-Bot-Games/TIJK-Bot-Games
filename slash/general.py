@@ -67,16 +67,25 @@ class General(commands.Cog):
     async def covid(self, interaction: Interaction, country: str):
         """Covid-19 Statistics for any countries"""
         async with interaction.channel.typing():
-            r = await http.get(f"https://disease.sh/v3/covid-19/countries/{country.lower()}", res_method="json")
+            r = await http.get(
+                f"https://disease.sh/v3/covid-19/countries/{country.lower()}",
+                res_method="json",
+            )
 
             if "message" in r:
-                return await interaction.send(f"The API returned an error:\n{r['message']}")
+                return await interaction.send(
+                    f"The API returned an error:\n{r['message']}"
+                )
 
             json_data = [
-                ("Total Cases", r["cases"]), ("Total Deaths", r["deaths"]),
-                ("Total Recover", r["recovered"]), ("Total Active Cases", r["active"]),
-                ("Total Critical Condition", r["critical"]), ("New Cases Today", r["todayCases"]),
-                ("New Deaths Today", r["todayDeaths"]), ("New Recovery Today", r["todayRecovered"])
+                ("Total Cases", r["cases"]),
+                ("Total Deaths", r["deaths"]),
+                ("Total Recover", r["recovered"]),
+                ("Total Active Cases", r["active"]),
+                ("Total Critical Condition", r["critical"]),
+                ("New Cases Today", r["todayCases"]),
+                ("New Deaths Today", r["todayDeaths"]),
+                ("New Recovery Today", r["todayRecovered"]),
             ]
 
             embed = nextcord.Embed(
@@ -91,7 +100,7 @@ class General(commands.Cog):
             await interaction.send(
                 f"**COVID-19** statistics in :flag_{r['countryInfo']['iso2'].lower()}: "
                 f"**{country.capitalize()}** *({r['countryInfo']['iso3']})*",
-                embed=embed
+                embed=embed,
             )
 
 
