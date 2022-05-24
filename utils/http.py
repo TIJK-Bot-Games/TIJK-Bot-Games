@@ -5,7 +5,7 @@ from utils import cache
 
 # Removes the aiohttp ClientSession instance warning.
 class HTTPSession(aiohttp.ClientSession):
-    """ Abstract class for aiohttp. """
+    """Abstract class for aiohttp."""
 
     def __del__(self):
         """
