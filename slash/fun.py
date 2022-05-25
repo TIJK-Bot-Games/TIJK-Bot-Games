@@ -95,6 +95,7 @@ class Fun(commands.Cog):
         await interaction.response.send_message(
             f"**{interaction.user.name}** has paid their respect {reason}{random.choice(hearts)}"
         )
+
     @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
         """shows you what happens when you have the ring."""
