@@ -1,3 +1,4 @@
+# TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 import nextcord
 from nextcord.application_command import SlashOption
 from nextcord import Interaction, slash_command as slash
