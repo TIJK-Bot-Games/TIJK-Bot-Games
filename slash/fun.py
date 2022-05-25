@@ -95,6 +95,16 @@ class Fun(commands.Cog):
         await interaction.response.send_message(
             f"**{interaction.user.name}** has paid their respect {reason}{random.choice(hearts)}"
         )
+    @slash(guild_ids=SLASH_GUILDS)
+    async def ihavethering(self, interaction: Interaction):
+        """shows you what happens when you have the ring."""
+        embed = nextcord.Embed(color=0x0DD91A)
+        embed.add_field(
+            name="Smeagol:",
+            value="My precious <3",
+            inline=False,
+        )
+        await interaction.response.send_message(embed=embed)
 
 
 def setup(bot: commands.Bot):
