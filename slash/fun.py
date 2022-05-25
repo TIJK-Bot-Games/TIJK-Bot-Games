@@ -99,13 +99,16 @@ class Fun(commands.Cog):
     @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
         """shows you what happens when you have the ring."""
+        img = nextcord.File("images/gollem.jpg")
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
             name="Smeagol:",
             value="My precious <3",
             inline=False,
         )
-        await interaction.response.send_message(embed=embed)
+        embed.set_image(url="attachment://gollem.jpg")
+        await interaction.response.send_message(embed=embed, file=img)
+        print("GOLEM, GOLEM")
 
 
 def setup(bot: commands.Bot):
