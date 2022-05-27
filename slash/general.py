@@ -60,19 +60,6 @@ class General(commands.Cog):
             view=Renew(self.bot),
         )
 
-    @slash(guild_ids=SLASH_GUILDS)
-    async def earth(self, interaction: Interaction):
-        """Sends a gif about the earth"""
-        img = nextcord.File("images/earth.webp")
-        embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="Views a gif about the earth.",
-            value="Our earth",
-            inline=False,
-        )
-        embed.set_image(url="attachment://earth.webp")
-        await interaction.response.send_message(embed=embed, file=img)
-
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
