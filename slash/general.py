@@ -1,4 +1,3 @@
-# TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
 import nextcord
 from nextcord.application_command import SlashOption
 from nextcord import Interaction, slash_command as slash
@@ -26,12 +25,12 @@ class General(commands.Cog):
         )
 
     @slash(guild_ids=SLASH_GUILDS)
-    async def aboutme(self, interaction: Interaction):
-        """Tells you what TIJK-Bot Games is."""
+    async def about(self, interaction: Interaction):
+        """Tells you what TIJK Bot Games is."""
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
             name="About me:",
-            value="TIJK Bot Games is a Discord bot developed by JustIanJ and codeman1o1. TIJK Bot Games is going to be a fun bot to use, it has features like 8-ball. We are currently under very heavy development. So the bot is not working properly yet. More content will be added later.",
+            value="TIJK Bot Games is a Discord bot developed by JustIanJ and codeman1o1. TIJK Bot Games is going to be a fun bot to use because it has features like 8ball. It is currently under very heavy development, so the bot is not working properly yet. More content will be added later.",
         )
         await interaction.response.send_message(embed=embed)
 
@@ -39,7 +38,7 @@ class General(commands.Cog):
     async def embed(
         self,
         interaction: Interaction,
-        name: str = SlashOption(description="The title of the field", required=False),
+        name: str = SlashOption(description="The name of the field", required=False),
         value: str = SlashOption(description="The value of the field", required=False),
     ):
         """Makes an embed"""

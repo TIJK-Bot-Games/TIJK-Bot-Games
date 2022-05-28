@@ -7,7 +7,6 @@ from nextcord.ext import commands
 from nextcord import Interaction, slash_command as slash
 from main import SLASH_GUILDS
 
-# Made by JustIanJ and codeman1o1.
 root = os.path.abspath(os.getcwd())
 eight_ball_responses = open(
     os.path.join(root, "eightball_responses.json"), "r", encoding="utf-8"
@@ -30,13 +29,13 @@ class Fun(commands.Cog):
         )
         await interaction.response.send_message(embed=embed)
 
-    @slash(guild_ids=SLASH_GUILDS)
+    @slash(name="8ball", guild_ids=SLASH_GUILDS)
     async def eightball(
         self,
         interaction: Interaction,
-        question=SlashOption(description="Your question", required=True),
+        question: str = SlashOption(description="Your question", required=True),
     ):
-        """Rolls the magic eightball for advise."""
+        """Rolls the magic 8ball for advise"""
         embed = nextcord.Embed(color=0x0DD91A, title=question)
         embed.description = random.choice(eight_ball_responses)
         await interaction.response.send_message(embed=embed)
@@ -47,32 +46,6 @@ class Fun(commands.Cog):
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(name="You have got:", value=random.choice(("Heads", "Tails")))
         await interaction.response.send_message(embed=embed)
-
-    @slash(guild_ids=SLASH_GUILDS)
-    async def adthijs(self, interaction: Interaction):
-        """Shows you our teacher"""
-        img = nextcord.File("images/adthijs.jpg")
-        embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="Our teacher: Ad Thijs",
-            value=":)",
-        )
-        embed.set_image(url="attachment://adthijs.jpg")
-        await interaction.response.send_message(embed=embed, file=img)
-        print("Adje has been summoned")
-
-    @slash(guild_ids=SLASH_GUILDS)
-    async def jurrels(self, interaction: Interaction):
-        """Shows you our Jurrels"""
-        img = nextcord.File("images/jurrels.jpg")
-        embed = nextcord.Embed(color=0x0DD91A)
-        embed.add_field(
-            name="Our lovely annoying Jurrels",
-            value=":)",
-            inline=False,
-        )
-        embed.set_image(url="attachment://jurrels.jpg")
-        await interaction.response.send_message(embed=embed, file=img)
 
     @slash(guild_ids=SLASH_GUILDS)
     async def beverage(self, interaction: Interaction):
