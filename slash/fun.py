@@ -81,7 +81,6 @@ class Fun(commands.Cog):
         )
         embed.set_image(url="attachment://gollem.jpg")
         await interaction.response.send_message(embed=embed, file=img)
-        print("GOLEM, GOLEM")
 
 
 def setup(bot: commands.Bot):
