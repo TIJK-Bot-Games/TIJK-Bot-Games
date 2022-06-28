@@ -23,7 +23,7 @@ class Fun(commands.Cog):
         """Tells you what you are"""
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
-            name="Tells you what you are.",
+            name="-=-=-=-=-=-=-=-=-=-=-=-",
             value="You are a very silly goose!",
             inline=False,
         )
