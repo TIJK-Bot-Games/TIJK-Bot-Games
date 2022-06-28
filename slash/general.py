@@ -30,7 +30,7 @@ class General(commands.Cog):
         embed = nextcord.Embed(color=0x0DD91A)
         embed.add_field(
             name="About me:",
-            value="TIJK Bot Games is a Discord bot developed by JustIanJ and codeman1o1. TIJK Bot Games is going to be a fun bot to use because it has a lot of fun features. It is currently under quite heavy development, so the bot is not working properly yet and the bot will have some bugs, please report those on our Github page (use /github command for the link). More content will be added later. Have fun using it!",
+            value="TIJK Bot Games is a Discord bot developed by JustIanJ and codeman1o1. TIJK Bot Games is going to be a fun bot to use because it is going to have a lot of fun features. It is currently under quite heavy development, so the bot is not working properly yet and the bot will have some bugs, please report those on our Github page (use /github command for the link). More content will be added later. Have fun using it!",
         )
         await interaction.response.send_message(embed=embed)
 
