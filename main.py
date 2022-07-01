@@ -47,3 +47,4 @@ if __name__ == "__main__":
                 print(e)
                 print(f"Failed to load {slash}")
     bot.run(os.getenv("BOT_TOKEN"))
+
