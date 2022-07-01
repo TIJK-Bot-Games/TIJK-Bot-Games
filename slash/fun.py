@@ -108,7 +108,6 @@ class Fun(commands.Cog):
             f"**{user.display_name}** is **{dumb}%** braindead"
         )
 
-
     @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
         """shows you what happens when you have the ring."""
