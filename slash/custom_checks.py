@@ -10,6 +10,7 @@ class CustomCheckError(ApplicationError):
 
 async def check_bot_owner(interaction: Interaction) -> bool:
     app_info = await interaction.client.application_info()
+    app_info.owner
     return app_info.owner == interaction.user
 
 
