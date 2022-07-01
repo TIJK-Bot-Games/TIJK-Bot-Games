@@ -70,6 +70,26 @@ class Fun(commands.Cog):
         )
 
     @slash(guild_ids=SLASH_GUILDS)
+    async def hotcalc(self, ctx, *, user: nextcord.Member = None):
+        """ Returns a random percent for how hot is a discord user """
+        user = user or ctx.author
+
+        random.seed(user.id)
+        r = random.randint(1, 100)
+        hot = r / 1.17
+        
+        if hot > 75:
+            emoji = "💞"
+        elif hot > 50:
+            emoji = "💖"
+        elif hot > 25:
+            emoji = "❤"
+        else:
+            emoji = "💔"
+
+        await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+
+    @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
         """shows you what happens when you have the ring."""
         img = nextcord.File("images/gollem.jpg")
