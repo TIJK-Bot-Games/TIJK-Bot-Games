@@ -36,9 +36,9 @@ async def on_ready():
 
 
 if __name__ == "__main__":
-    _slash = os.listdir("slash")
-    _slash.remove("custom_checks.py")
-    for slash in _slash:
+    slash_files = os.listdir("slash")
+    slash_files.remove("custom_checks.py")
+    for slash in slash_files:
         if slash.endswith(".py"):
             try:
                 bot.load_extension(f"slash.{slash[:-3]}")
