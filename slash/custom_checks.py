@@ -50,8 +50,6 @@ def is_bot_owner():
 
     return check(predicate)
 
-
-
 def is_server_owner():
     async def predicate(interaction: Interaction) -> bool:
         app_info = await interaction.client.application_info()
