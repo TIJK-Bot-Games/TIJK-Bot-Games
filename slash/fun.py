@@ -92,7 +92,7 @@ class Fun(commands.Cog):
         await interaction.response.send_message(
             f"**{user.display_name}** is **{hot}%** hot {emoji}"
         )
-        
+
     @slash(guild_ids=SLASH_GUILDS)
     async def stupidcalc(
         self,
