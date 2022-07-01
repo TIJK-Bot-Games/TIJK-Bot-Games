@@ -77,7 +77,7 @@ class Fun(commands.Cog):
         random.seed(user.id)
         r = random.randint(1, 100)
         hot = r / 1.17
-        
+
         if hot > 75:
             emoji = "💞"
         elif hot > 50:
