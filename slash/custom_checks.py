@@ -10,7 +10,8 @@ class CustomCheckError(ApplicationError):
 
 async def check_bot_owner(interaction: Interaction) -> bool:
     app_info = await interaction.client.application_info()
-    app_info.owner
+    print(app_info.owner.id)
+    print(interaction.user.id)
     return app_info.owner == interaction.user
 
 
@@ -50,6 +51,8 @@ def is_bot_owner():
         )
 
     return check(predicate)
+
+#JustIanJ and codeman1o1 were here :D
 
 
 def is_server_owner():
