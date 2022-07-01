@@ -92,6 +92,22 @@ class Fun(commands.Cog):
         await interaction.response.send_message(
             f"**{user.display_name}** is **{hot}%** hot {emoji}"
         )
+        
+    @slash(guild_ids=SLASH_GUILDS)
+    async def stupidcalc(
+        self,
+        interaction: Interaction,
+        user: nextcord.Member = SlashOption(required=False),
+    ):
+        """Returns a random percent for how braindead a Discord user is"""
+        user = user or interaction.user
+
+        dumb: float = random.randint(0, 1000) / 10
+
+        await interaction.response.send_message(
+            f"**{user.display_name}** is **{dumb}%** braindead"
+        )
+
 
     @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
