@@ -1,4 +1,5 @@
 # TIJK-Bot Games is made and maintained by JustIanJ and codeman1o1
+# Code from TIJK-bot repo has been used with consent of the owner Codeman1o1.
 
 import os
 import nextcord
