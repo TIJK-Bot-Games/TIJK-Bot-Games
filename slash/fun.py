@@ -70,13 +70,11 @@ class Fun(commands.Cog):
         )
 
     @slash(guild_ids=SLASH_GUILDS)
-    async def hotcalc(self, ctx, *, user: nextcord.Member = None):
-        """Returns a random percent for how hot is a discord user"""
-        user = user or ctx.author
+    async def hotcalc(self, interaction: Interaction, user: nextcord.Member = SlashOption(required=False)):
+        """Returns a random percent for how hot is a Discord user"""
+        user = user or interaction.user
 
-        random.seed(user.id)
-        r = random.randint(1, 100)
-        hot = r / 1.17
+        hot: float = random.randint(0, 1000) / 10
 
         if hot > 75:
             emoji = "💞"
@@ -87,7 +85,7 @@ class Fun(commands.Cog):
         else:
             emoji = "💔"
 
-        await ctx.send(f"**{user.name}** is **{hot:.2f}%** hot {emoji}")
+        await interaction.response.send_message(f"**{user.display_name}** is **{hot}%** hot {emoji}")
 
     @slash(guild_ids=SLASH_GUILDS)
     async def ihavethering(self, interaction: Interaction):
