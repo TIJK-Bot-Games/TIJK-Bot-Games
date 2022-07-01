@@ -40,6 +40,6 @@ class Developer(commands.Cog):
             embed.add_field(name="Available servers:", value=servers)
             await interaction.response.send_message(embed=embed, ephemeral=True)
 
+
 def setup(bot: commands.Bot):
     bot.add_cog(Developer(bot))
-

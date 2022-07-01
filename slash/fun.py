@@ -71,7 +71,7 @@ class Fun(commands.Cog):
 
     @slash(guild_ids=SLASH_GUILDS)
     async def hotcalc(self, ctx, *, user: nextcord.Member = None):
-        """ Returns a random percent for how hot is a discord user """
+        """Returns a random percent for how hot is a discord user"""
         user = user or ctx.author
 
         random.seed(user.id)
