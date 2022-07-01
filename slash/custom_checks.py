@@ -52,7 +52,6 @@ def is_bot_owner():
 
     return check(predicate)
 
-#JustIanJ and codeman1o1 were here :D
 
 
 def is_server_owner():
